@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agora Vai</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Mali:ital,wght@0,200;0,300;0,400;1,200;1,300;1,400&family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        
+       
+        body{
+            background-color: rgb(0, 0, 0);
+            font-family: 'Orbitron';
+        }
+
+        header{
+            text-align: center;
+        }
+
+        section{
+            color:lightgray;
+            display: flex;
+            justify-content: center;
+            padding: 25px;
+            margin:  230px auto auto auto;
+        }
+
+        div#txt1{
+            font-size: 30px;
+            padding-left: 50px;
+            margin-top: 70px;
+        }
+
+        div#txt2{
+            font-size: 100px;
+            text-align: center;
+            width: 480px;
+            height: 126px;
+            
+        }
+
+        div#txt3{
+            font-size: 30px;
+            margin-top: 70px;
+        }
+
+        footer{
+            position: absolute;
+            bottom: 0;
+            color:lightgray;
+            text-align: center;
+            padding-top: 20px;
+            font-style: italic;
+        }
+
+        @media( max-width: 685px) {
+            section {
+                flex-direction: column;
+                align-items: flex-start;
+            } 
+            div#txt1{
+                text-align: left;
+                padding-left: 0px;
+
+            }
+            div#txt2{
+                text-align: left;
+                width: 100%;
+            }
+            div#txt3{
+                margin-top: 0px;
+                padding-left: 0px;
+            }
+            footer {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                text-align: center;
+                padding: 10px;
+            }
+            * {
+                margin: 0px;
+            }
+
+            
+        }
+
+    </style>
+</head>
+<body onload="iniciar()">
+    <section>
+        <div id="txt1"></div>
+        <div id="txt2"></div>
+        <div id="txt3"></div>
+    </section>
+    <footer>
+        &copy;YuriFelinto
+    </footer>
+    <script>
+        setInterval(relogio, 1000)
+        
+        function iniciar() {
+            relogio()
+            dia()
+            ano()
+        }
+       
+        function relogio() {
+        var agora = new Date()
+        var hora = agora.getHours()
+        var minutos = agora.getMinutes()
+        var segundos = agora.getSeconds()
+        var txtele = document.getElementById('txt2')
+        txtele.innerHTML = `<strong>${hora}:${minutos}:${segundos}</strong>`
+            if (hora >= 0 && hora < 12) {
+                document.body.style.backgroundColor = 'black';
+            }else{
+                document.body.style.backgroundColor = 'black'
+            }
+        }
+        
+        function dia() {
+            var agora = new Date()
+            var diaAt = agora.getDay() 
+            var nomesDias = ['Sun', 'Mon', 'Tue', 'Wed', 'thu', 'Fri', 'Sat'];
+            var diaTxt = window.document.getElementById('txt1')
+            diaTxt.innerHTML = `${nomesDias[diaAt]}`
+         }
+        
+         function ano() {
+            var agora = new Date()
+            var ano = agora.getFullYear()
+            var anotxt = window.document.getElementById('txt3')
+            anotxt.innerHTML = `${ano}`
+
+         }
+    </script>
+</body>
+</html>
